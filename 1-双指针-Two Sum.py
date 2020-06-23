@@ -1,3 +1,4 @@
+import numpy
 class Solution:
     def twoSum(self, nums, target):
         dic1 = {}
