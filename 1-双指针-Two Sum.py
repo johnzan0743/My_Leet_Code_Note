@@ -5,6 +5,7 @@ class Solution:
         origin_index = list(range(len(nums)))
         sorted_index = numpy.argsort(nums)
         nums.sort()
+        # dic1 = dict(zip(sorted_index,origin_index))
         for i in range(len(origin_index)):
             dic1[sorted_index[i]] = origin_index[i]
         i = 0

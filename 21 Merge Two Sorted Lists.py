@@ -9,7 +9,7 @@ ListNode.val只是一个数值，而ListNode.next则是相当于指向下一个N
 '''
 class Solution:
     def mergeTwoLists(self, l1: ListNode, l2: ListNode) -> ListNode:
-        dummy = ListNode(0)
+        dummy = ListNode(0) #could be ListNode(Any Number)
         current = dummy
         
         while l1 and l2:
