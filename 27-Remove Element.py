@@ -8,10 +8,25 @@ class Solution:
             else:
                 count +=1
         return count
+
 # 注意：此处的count是指length，而不是index，所以return count不需要减一
 
-#双指针 
 '''
+快慢指针
+'''
+class Solution:
+    def removeElement(self, nums: List[int], val: int) -> int:
+        count = 0
+        for i in range(len(nums)):
+            if nums[i] == val:
+                continue
+            else:
+                nums[count] = nums[i]
+                count +=1
+        return count
+
+'''
+双指针Swap 
 跟方法一类似，这里也要注意，position指的是index而非length
 '''
 class Solution:
