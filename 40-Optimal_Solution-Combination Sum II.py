@@ -9,15 +9,16 @@ class Solution:
     def combine_sum_2(self, nums, start, path, result, target):
         # Base case: if the sum of the path satisfies the target, we will consider 
         # it as a solution, and stop there
-        if not target:
+        # 当target为0时，target为假，not target为真，把path(temp_list)加入到result list里面
+        if not target: 
             result.append(path)
             return
 
         for i in range(start, len(nums)):
-            # Very important here! We don't use `i > 0` because we always want 
-            # to count the first element in this recursive step even if it is the same 
-            # as one before. To avoid overcounting, we just ignore the duplicates
-            # after the first element.
+            '''
+            Very important here! We don't use `i > 0` because we always want 
+            to count the first element in this recursive step even if it is the same as one before. To avoid overcounting, we just ignore the duplicates after the first element.
+            '''
             if i > start and nums[i] == nums[i - 1]:
                 continue
 
