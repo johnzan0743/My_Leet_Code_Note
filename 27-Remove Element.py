@@ -26,7 +26,7 @@ class Solution:
         return count
 
 '''
-双指针Swap 
+双指针Swap(首尾指针) 
 跟方法一类似，这里也要注意，position指的是index而非length
 '''
 class Solution:
