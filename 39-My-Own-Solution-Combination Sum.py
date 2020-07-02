@@ -21,6 +21,10 @@ class Solution:
                     path.append(candidates[i])
                     dfs(i,candidates,path,result,target)
                     path.pop()
+                    # 上面三行path.append()...dfs()...path.pop()
+                    # 也可以直接写成
+                    # dfs(i,candidates,path+[candidates[i]],result,target)
+                    # 原因见46题攻略，其实也就是39题V2的答案
         result = []
         start = 0
         path = []
