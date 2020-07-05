@@ -25,6 +25,8 @@ class Solution:
                     # 也可以直接写成
                     # dfs(i,candidates,path+[candidates[i]],result,target)
                     # 原因见46题攻略，其实也就是39题V2的答案
+                    # 这个题内层dfs的时候target不用减，是因为return的条件设计的是sum(path) == target,而且candidates可以重复使用
+                    # 如果return条件设计为if not target，则在内层循环中需要改成target-candidates[i]
         result = []
         start = 0
         path = []

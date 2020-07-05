@@ -1,5 +1,31 @@
 class Solution:
     def combinationSum2(self, candidates, target):
+        candidates.sort()
+        result = []
+        temp_list = []
+        def dfs(start,candidates,target,temp_list):
+            if sum(temp_list) == target:
+                result.append(temp_list)
+                return
+            elif sum(temp_list) > target:
+                return
+            for i in range(start,len(candidates)):
+                if i >start and candidates[i] == candidates[i-1]: 
+                    #如果当前的candidates[i]与上一个candidates[i-1]完全相同，则可以跳过一次循环，因为只能之前已经尝试过一次了，而题目要求不要有重复的答案组合
+                    continue
+                
+                if sum(temp_list) < target:
+                    dfs(i+1,candidates,target,temp_list+[candidates[i]])
+        dfs(0,candidates,target,temp_list)
+        return result
+
+
+
+
+
+
+class Solution:
+    def combinationSum2(self, candidates, target):
         #import copy
         candidates.sort()
         result = []
