@@ -7,8 +7,8 @@ class Solution:
     def swapPairs(self, head: ListNode) -> ListNode:
         if not head or not head.next:
             return head
-        dammy = current_node = ListNode(0)
-        dammy.next = head
+        dummy = current_node = ListNode(0)
+        dummy.next = head
         current_node.next = head
         while current_node.next and current_node.next.next:
             first = current_node.next
@@ -17,5 +17,5 @@ class Solution:
             first.next = second.next
             second.next = first
             current_node = current_node.next.next
-        return dammy.next
+        return dummy.next
         
