@@ -1,5 +1,3 @@
-2020-07-06-21-53-28.png
-
 class Solution:
     def longestPalindrome(self, s: str) -> str:
         import copy
