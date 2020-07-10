@@ -33,9 +33,20 @@ class Solution:
         dfs(start,candidates,path,result,target)  
         return result
 
+# 规范的写法
 
-
-A = Solution()
-candidates = [10,7,5,3,2]
-target =15
-B = A.combinationSum(candidates, target)  
+class Solution:
+    def combinationSum(self, candidates, target):
+        result = []
+        temp_list = []               
+        self.dfs(0,candidates,temp_list,target,result)
+        return result
+    def dfs(self, start, candidates, temp_list, target,result):
+        if sum(temp_list) == target:
+            result.append(temp_list)
+            return
+        elif sum(temp_list) > target:
+            return
+        for i in range(start, len(candidates)):
+            if sum(temp_list) < target:
+                self.dfs(i, candidates, temp_list+[candidates[i]],target,result)

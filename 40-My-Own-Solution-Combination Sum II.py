@@ -7,6 +7,7 @@ class Solution:
             if sum(temp_list) == target:
                 result.append(temp_list)
                 return
+                #此处的return是为了回到下面的for循环中
             elif sum(temp_list) > target:
                 return
             for i in range(start,len(candidates)):
@@ -17,6 +18,7 @@ class Solution:
                 if sum(temp_list) < target:
                     dfs(i+1,candidates,target,temp_list+[candidates[i]])
         dfs(0,candidates,target,temp_list)
+                    #这里dfs()里面一定要写i+1 而不是start+1, 否则就无法达到去重的效果，因为前面当candidates[i] == candidates[i-1]的时候，continue，这一步就是在去重
         return result
 
 
