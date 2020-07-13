@@ -27,20 +27,19 @@ class Solution:
 '''
 class Solution:
     def permute(self, nums):
+        temp = []
         result = []
-        temp_list = []
-        self.helper(nums,temp_list, result)
+        n = len(nums)
+        self.dfs(temp,nums,result,n)
         return result
-    
-    def helper(self,nums,temp_list, result):
-        if len(temp_list) == len(nums):
-            result.append(temp_list)
+    def dfs(self,temp,nums,result,n):
+        if len(temp) == n:
+            result.append(temp)
             return
-
         for i in range(len(nums)):
-            if nums[i] in temp_list:
-                continue
-            self.helper(nums, temp_list + [nums[i]], result)
+            self.dfs(temp+[nums[i]], nums[:i]+nums[i+1:],result,n)
+            # 因为下面self.dfs()中已经把nums[i]去掉了，所以循环的时候直接
+            # for i in range(len(nums))就可以了，括号里的nums已经把nums[i]去掉了
 
 A =Solution()
 nums = [1,2,3]
@@ -53,5 +52,5 @@ backtracking中return的作用为返回上一层，并把最后加入temp_list�
 当然了，满足条件时：
                 result.append(temp_list)
             return
-也有返回上一层的作用，也可以吧temp_lis的元素pop出来
+也有返回上一层的作用，也可以吧temp_list的元素pop出来
 '''
