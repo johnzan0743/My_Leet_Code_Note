@@ -18,5 +18,7 @@ class Solution:
             slow = slow.next
         
         slow.next = slow.next.next
+        # 不能写slow.next = fast 特殊情况是
+        # head=[1], n=1 即fast有值而slow是空集
     
         return dummy.next
