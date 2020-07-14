@@ -1,3 +1,4 @@
+# 注意，此题斜着寻找最大长度的时候可以用动态规划
 class Solution:
     def longestPalindrome(self, s: str) -> str:
         import copy

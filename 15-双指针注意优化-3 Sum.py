@@ -15,7 +15,7 @@ class Solution:
                 if nums[i] + nums[i+1] + nums[i+2] >0:
                     break
                 
-                if i != 0 and nums[i] == nums[i-1]:
+                if i > 0 and nums[i] == nums[i-1]:
                     continue
                        
                 l = i + 1
