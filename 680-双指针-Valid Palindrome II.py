@@ -8,7 +8,8 @@ class Solution:
             return True
         left = 0
         right = len(s) -1
-        #此时字符串s一定需要删除一个元素，才有可能达成回文要求
+        # 此时字符串s一定需要删除一个元素，才有可能达成回文要求
+        # 所以一定会break
         while left < right:
             if s[left] == s[right]:
                 left +=1
