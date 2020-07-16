@@ -17,5 +17,7 @@ class Solution:
             elif nums[curr] == 2:
                 nums[curr], nums[p2] = nums[p2], nums[curr]
                 p2 -= 1
-            else:
+            else: # elif nums[current] == 1:
                 curr += 1
+        # 某种程度上而言，current代表的是0，1， p0代表的是0，p2代表的是2
+        # 记住：交换位置的是元素，指针并不会被交换，只会根据条件向前或向后移动
