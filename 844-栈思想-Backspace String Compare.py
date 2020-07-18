@@ -19,3 +19,19 @@ class Solution:
 当遇到#的时候，就pop最后压入的字母
 特例：当栈为空时，遇到#跳过，即只有当栈不为空时遇到#才弹出last element
 '''
+class Solution:
+    def backspaceCompare(self, S: str, T: str) -> bool:
+        def new_list(string, answer):
+            for i in string:
+                if i == '#':
+                    if answer:
+                        answer.pop()
+                else:
+                    answer.append(i)
+            return answer
+        S_list = []
+        T_list = []
+        S_list = new_list(S,S_list)
+        T_list = new_list(T,T_list)
+
+        return S_list == T_list
