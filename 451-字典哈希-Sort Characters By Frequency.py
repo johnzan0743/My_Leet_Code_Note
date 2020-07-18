@@ -9,3 +9,14 @@ class Solution:
         for i in new_key:
             res += count[i]*i
         return res
+
+# Set法
+class Solution:
+    def frequencySort(self, s: str) -> str:
+        str_set=set(s)
+        count_list=[[i,s.count(i)] for i in str_set]
+        count_list.sort(key=lambda x:x[1],reverse=True)
+        sort_str=''
+        for i in countlist:
+            sort_str+=i[0]*i[1]
+        return sort_str
