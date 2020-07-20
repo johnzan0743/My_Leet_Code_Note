@@ -2,6 +2,9 @@ LinkedList总结：
 
 1. 每一个linked list上的node都有两个属性，一个是val/node，另一个是next
 2. 在不手动更改val的前提下，val的变化即意味着list node位置的变化，即当前的list node已经移动到另外一个node里了，这有点像一个萝卜一个坑。每一个node就是一个萝卜坑。而next则只是一个指针的方向，即预备的下一目的地，next类似于指南针，或者预瞄准
+3. ListNode(i) 是一个类的实例化，相当于把i赋予self.val 参考TreeNode(i)，也是一个类和类的实例化
+4. 所有的singly linked list（单向链表）的结束都是Null/None
+5. head 不能是Null/None
 
 链表图解
 ![](2020-07-17-14-27-34.png)

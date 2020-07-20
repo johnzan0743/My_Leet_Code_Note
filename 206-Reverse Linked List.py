@@ -1,6 +1,7 @@
 class Solution(object):
     def reverseList(self, head):
-        previous = None
+        previous = None 
+        # 因为任何单向链表都是以Null/None为结束，所以这里一定要定义previous = None
         current = head
         # （0） -> 1 -> 2
         #  pre   curr temp
