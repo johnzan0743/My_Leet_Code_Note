@@ -7,7 +7,7 @@ class Solution:
         else:
             if l1.val < l2.val:
                 l1.next = self.mergeTwoLists(l1.next,l2)
-                return l1 # 这一句只有当l1和l2同时有同样的长度，一起跑完之后比较最后一个节点的时候，才会被执行到
+                return l1 
             else:
                 l2.next = self.mergeTwoLists(l1,l2.next)
                 return l2

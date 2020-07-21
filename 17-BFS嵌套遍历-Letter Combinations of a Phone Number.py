@@ -7,7 +7,7 @@ class Solution:
         if not digits:
             return []
         
-        result_list = ['']
+        result_list = [''] # 注意，此处必须这么写
         for digit in digits:
             temp_list = []
             digit_characters = mapping[digit]

@@ -1,6 +1,6 @@
 class Solution:
     def combinationSum2(self, candidates, target):
-        # Sorting is really helpful, se we can avoid over counting easily
+        # 因为所有元素只能用一次，在有重复元素的情况下，需要提前对原数组进行排序
         candidates.sort()                      
         result = []
         self.combine_sum_2(candidates, 0, [], result, target)
@@ -26,7 +26,26 @@ class Solution:
             if nums[i] > target:
                 break
 
-            # We change the start to `i + 1` because one element only could
-            # be used once
+            # 因为元素不能重复拿取，所以寻找下一个搭配对象的元素必须从i+1开始找起
             self.combine_sum_2(nums, i + 1, path + [nums[i]], 
                                result, target - nums[i])
+# 上面是有start来限定取解空间的解法
+# 下面附上根据我自己的理解，通过更改每次循环candidates的取值范围，而省略start参数的解法
+# 记得最开始要对原数列排序，因为每一个元素都只能取一次
+class Solution:
+    def combinationSum2(self, candidates: List[int], target: int) -> List[List[int]]:
+        path = []
+        result = []
+        candidates.sort()
+        def dfs(candidates,path):
+            if sum(path) == target:
+                result.append(path)
+                return
+            if sum(path) > target:
+                return 
+            for i in range(len(candidates)):
+                if i > 0 and candidates[i] == candidates[i-1]:
+                    continue
+                dfs(candidates[i+1:],path+[candidates[i]])
+        dfs(candidates,path)
+        return result

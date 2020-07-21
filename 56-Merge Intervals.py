@@ -9,6 +9,7 @@ class Solution:
                 merged.append(interval)
             else:
                 # 否则的话，我们就可以与上一区间进行合并
+                # 只用考虑最大值的上限，因为下限已经在一开始sort好了
                 merged[-1][1] = max(merged[-1][1], interval[1])
 
         return merged

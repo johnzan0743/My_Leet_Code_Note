@@ -4,6 +4,7 @@ class Solution:
         def dfs(nums, temp):
             if not nums:
                 result.append(temp.copy())
+                # result.append(temp)
                 return
             for i in range(len(nums)):
                 dfs(nums[:i] + nums[i+1:], temp + [nums[i]])
@@ -13,7 +14,8 @@ class Solution:
         temp = []    
         dfs(nums,temp)
         return result
-
+# 每次都从nums求解空间里取出一个元素，放在同一个path空间里
+# 不用去重，不用担心有重复解，最简单
 
                       1     2     3     4     5
                 2  3  4  5
