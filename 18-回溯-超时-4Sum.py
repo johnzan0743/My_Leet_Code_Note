@@ -6,19 +6,20 @@ class Solution:
         temp_list = []
         nums.sort()
         # n = len(nums)
-        def dfs(start, nums, temp_list, result, target):
+        def dfs(nums, temp_list, result, target):
             if len(temp_list) == 4 and sum(temp_list) == target:
                 result.append(temp_list)
             if len(temp_list) > 4:
                 return
             #if len(temp_list) > 0 and sum(temp_list) > target:
                 #return
-            for i in range(start,len(nums)):
-                if i > start and nums[i] == nums[i-1]:
+            for i in range(len(nums)):
+                if i > 0 and nums[i] == nums[i-1]:
                     continue
-                dfs(start, nums[i+1:], temp_list+[nums[i]],result, target)
-        dfs(0, nums,temp_list,result,target)
+                dfs(nums[i+1:], temp_list+[nums[i]],result, target)
+        dfs(nums,temp_list,result,target)
         return result
+
 
 作者：johnzan0743
 链接：https://leetcode-cn.com/problems/4sum/solution/si-zhi-zhen-hui-su-suan-fa-dfs-by-johnzan0743/
