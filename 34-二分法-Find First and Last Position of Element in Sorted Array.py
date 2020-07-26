@@ -1,3 +1,4 @@
+# 第一种思路：移动mid
 class Solution:
     def searchRange(self, nums: List[int], target: int) -> List[int]:
         if not nums:
@@ -35,5 +36,44 @@ class Solution:
                     else:
                         break
                 return [low,high]
+
+# 第二种思路，从mid向两边拓展
+class Solution:
+    def searchRange(self, nums: List[int], target: int) -> List[int]:
+        if not nums:
+            return [-1,-1]
+        if len(nums) == 1:
+            if nums[0] == target:
+                return [0,0]
+            else:
+                return [-1,-1]
+        p1 = 0
+        p2 = len(nums) - 1
+        flag = True
+        while p1 < p2:
+            mid = (p1+p2)//2
+            if nums[mid] < target:
+                p1 = mid + 1
+            elif nums[mid] > target:
+                p2 = mid - 1  # 最后返回p1 
+                # 如果nums[mid]一直不与target相等，最终p1和p2会汇合到一个点上
+            elif nums[mid] == target:
+                flag = False
+                break
+        if flag is True:
+            if nums[p1] == target:
+                return [p1,p1]
+            else:
+                return [-1,-1]
+        if flag is False:
+            i = 0
+            while mid - i >= 0 and nums[mid-i] == nums[mid]:
+                i +=1
+            low = mid- i + 1
+            i = 0
+            while mid + i < len(nums)  and nums[mid+i] == nums[mid]:
+                i +=1
+            high = mid + i - 1
+            return [low,high]
                     
         
