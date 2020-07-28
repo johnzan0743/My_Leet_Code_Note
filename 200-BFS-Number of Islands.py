@@ -5,36 +5,18 @@ class Solution:
         if not grid:
             return 0
 
-        check_board = [[False for i in range(len(grid[0]))] for i in range(len(grid))]
         count = 0
-
-        for i in range(len(grid)):
-            for j in range(len(grid[0])):
-                if grid[i][j] == '1':
-                    if check_board[i][j] is False:
-                        count +=1
-                        check_board[i][j] = True
-                        queue = []
-                        queue.append([i,j])
-                        while queue:
-                            temp = queue.pop(0)
-                            p = temp[0]
-                            q = temp[1]
-                            if p + 1 <= len(grid)-1 and check_board[p+1][q] is False and grid[p+1][q] == '1':
-                                queue.append([p+1,q])
-                                check_board[p+1][q] = True
-                            if p-1 >=0 and check_board[p-1][q] is False and grid[p-1][q] == '1':
-                                queue.append([p-1,q])
-                                check_board[p-1][q] = True
-                            if q-1 >=0 and check_board[p][q-1] is False and grid[p][q-1] == '1':
-                                queue.append([p,q-1])
-                                check_board[p][q-1] = True
-                            if q+1 <= len(grid[0])-1 and check_board[p][q-1] is False and grid[p][q+1] == 1:
-                                queue.append([p,p+1])
-                                check_board[p][q+1] = True
-
+        path = []
+        for row in range(len(grid)):
+            for col in range(len(grid[0])):
+                if grid[row][col] == '1':
+                    count += 1
+                    grid[row][col] = '-1' # 别忘了改状态 防止重复visit
+                    path.append([row,col])
+                    while path:
+                        x,y = path.pop(0)
+                        for new_x,new_y in [[x+1,y],[x-1,y],[x,y-1],[x,y+1]]:
+                            if 0 <= new_x < len(grid) and 0 <= new_y < len(grid[0]) and grid[new_x][new_y] == '1':
+                                path.append([new_x,new_y])
+                                grid[new_x][new_y] = '-1' 
         return count
-    
-
-
-                                
