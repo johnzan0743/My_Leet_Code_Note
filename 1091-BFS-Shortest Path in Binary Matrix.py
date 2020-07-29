@@ -33,4 +33,5 @@ class Solution:
                         path.append([new_x,new_y])
             result +=1 
             # 对某一层的元素都求判定过后，距离加1(同一个层次中的所有点的距离距离起点都是相等的）
+            # 这里的某一层是指BFS中的一层，而不是grid中的一层。BFS中的一层是指与起点距离相同的元素
         return -1
