@@ -8,7 +8,7 @@ class Solution:
             return -1 
         if n == 1:
             return 1
-            # 此时grid只有一行，由于是在8个方向上联通，所以直接向左移动一格就到了终点  # 感觉还是有问题，不应该是2吗？
+            # 此时grid只有一行，由于题中说grid是N*N，所以相当于只有一个格子，所以一步到位
         path = []
         result = 1
         path.append([0,0])
