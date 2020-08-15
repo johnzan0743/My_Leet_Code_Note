@@ -12,6 +12,8 @@ Python Regular Express as re 正则表达式总结
 `import re`
 `content = 'xxxxxx'`
 `result = re(content,result)`
+
 result 是一个object，即是一个class(类)
-result.groups()
-result.group(0)`
+`result.groups()`会把所有的subgroup（从group(1)开始）以tuple的形式输出
+`result.group(0)`得到的是原content，即被匹配的内容
+`result.group(1)`会得到第一个匹配成功的字符串
