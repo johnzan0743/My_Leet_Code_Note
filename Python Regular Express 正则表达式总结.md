@@ -9,3 +9,9 @@ Python Regular Express as re 正则表达式总结
 # 正则表达式实例（特殊字符类）
 ![](2020-08-15-12-58-22.png)
 
+`import re`
+`content = 'xxxxxx'`
+`result = re(content,result)`
+result 是一个object，即是一个class(类)
+result.groups()
+result.group(0)`
